@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subscribe and Win a Netflix Subscription</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            text-align: center;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+        }
+        h1 {
+            color: #e50914;
+        }
+        p {
+            color: #333;
+        }
+        .countdown {
+            font-size: 1.2em;
+            color: #e50914;
+            margin: 10px 0;
+        }
+        .button-link {
+            display: inline-block;
+            padding: 10px 20px;
+            color: #fff;
+            background-color: #e50914;
+            border: none;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .privacy-note {
+            font-size: 0.8em;
+            color: #666;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Win a Netflix Subscription!</h1>
+        <p>Take advantage of the chance to win a free one-month subscription on Netflix.</p>
+        
+        <!-- Countdown Timer -->
+        <div class="countdown" id="countdown">Time Remaining: --:--:--:--</div>
+
+        <!-- Link Button to a Specific Site -->
+        <a href="https://file-unlock.com/?131da4b" target="_blank" class="button-link">Learn More</a>
+        
+    </div>
+
+    <script>
+        // Calculate the countdown end time (1 day and 15 hours from now)
+        const countdownEnd = new Date(new Date().getTime() + (1 * 24 + 15) * 60 * 60 * 1000);
+
+        // Update the countdown every second
+        const countdownInterval = setInterval(() => {
+            const now = new Date().getTime();
+            const distance = countdownEnd - now;
+
+            // Calculate the remaining days, hours, minutes, and seconds
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            // Display the remaining time on the page
+            document.getElementById("countdown").innerHTML = `Time Remaining: ${days} days ${hours} hours ${minutes} minutes ${seconds} seconds`;
+
+            // End the countdown when it reaches zero
+            if (distance < 0) {
+                clearInterval(countdownInterval);
+                document.getElementById("countdown").innerHTML = "Time is up!";
+            }
+        }, 1000);
+    </script>
+</body>
+</html>
